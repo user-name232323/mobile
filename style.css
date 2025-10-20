@@ -43,7 +43,7 @@ body {
 }
 
 /* ==== Мобильная версия ==== */
-@media (max-width: 767px) {
+@media (max-width: 600px) {
   .image-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
