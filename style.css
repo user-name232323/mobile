@@ -12,9 +12,11 @@ body {
   color: #111;
 }
 
+/* ==== Desktop по умолчанию ==== */
 .image-row {
   display: flex;
-  overflow-x: auto;
+  flex-wrap: wrap;       /* десктоп — оборачиваем картинки на новые ряды */
+  justify-content: flex-start;
   gap: 10px;
   padding: 10px;
   scroll-behavior: smooth;
@@ -25,9 +27,8 @@ body {
 }
 
 .image-row img {
-  flex: 0 0 auto;
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -38,13 +39,17 @@ body {
   transform: scale(1.05);
 }
 
-@media (min-width: 768px) {
+/* ==== Мобильная версия ==== */
+@media (max-width: 767px) {
   .image-row {
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 10px;
+    padding: 10px;
   }
+
   .image-row img {
-    width: 150px;
-    height: 150px;
+    width: 100%;    /* картинка заполняет колонку */
+    height: auto;   /* пропорциональная высота */
   }
 }
