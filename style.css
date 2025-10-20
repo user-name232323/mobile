@@ -1,82 +1,50 @@
-/* Общий фон и шрифт */
 body {
-  background-color: #f4f6f8;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
+  padding: 0;
+  background: #f7f9fb;
 }
 
-/* Контейнер таблицы */
-.table-container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 900px;
-}
-
-/* Заголовок */
-.table-container h1 {
+.gallery-title {
   text-align: center;
-  margin-bottom: 20px;
-  color: #1f5fbf;
+  margin-top: 20px;
   font-size: 24px;
+  color: #111;
 }
 
-/* Таблица */
-.styled-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 16px;
-  min-width: 600px;
+.image-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scroll-behavior: smooth;
 }
 
-/* Заголовки */
-.styled-table thead tr {
-  background-color: #1f5fbf;
-  color: #ffffff;
-  text-align: left;
+.image-row::-webkit-scrollbar {
+  display: none; /* скрываем скроллбар */
 }
 
-/* Ячейки */
-.styled-table th,
-.styled-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
+.image-row img {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-/* Чередование строк */
-.styled-table tbody tr:nth-child(even) {
-  background-color: #f3f6fb;
+.image-row img:hover {
+  transform: scale(1.05);
 }
 
-/* Подсветка при наведении */
-.styled-table tbody tr:hover {
-  background-color: #e8f0ff;
-}
-
-/* Статусы */
-.status {
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.status.available {
-  background-color: #dcfce7;
-  color: #166534;
-}
-
-.status.preorder {
-  background-color: #fff7cd;
-  color: #8a6d00;
-}
-
-.status.none {
-  background-color: #fee2e2;
-  color: #991b1b;
+@media (min-width: 768px) {
+  .image-row {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .image-row img {
+    width: 150px;
+    height: 150px;
+  }
 }
